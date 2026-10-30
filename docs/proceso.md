@@ -106,10 +106,24 @@ convertir y avisa de los problemas que antes se buscaban a ojo.
 | No hay saltos de nivel (`H1` → `H3`) | A ojo | Automático |
 | La sangría de las listas es múltiplo de 2 | A ojo | Automático |
 | El documento tiene al menos un encabezado | A ojo | Automático |
+| El archivo no quedó vacío | A ojo | Automático |
 | El contenido es correcto y no falta texto | A ojo | Sigue siendo manual |
 
 La última fila se queda manual a propósito: verificar que no se perdió información exige
 comparar con el original, y eso no lo resuelve una regla.
+
+### El caso del archivo vacío
+
+Una imagen se convirtió en un `.md` de **cero bytes**. El proceso decía "listo", el archivo
+existía, y el RAG no recibía absolutamente nada. Ningún error, ninguna alerta: si nadie abría
+ese archivo, el documento simplemente no existía para el agente.
+
+La causa: la conversión de imágenes sin un modelo de lenguaje configurado no hace
+reconocimiento de texto, devuelve metadatos. Y el script escribía el resultado sin comprobar
+que trajera algo.
+
+Por eso la validación incluye ahora una comprobación de contenido mínimo: un resultado vacío se
+reporta como falla, no como éxito. Ese tipo de error es el que más caro sale, porque no se ve.
 
 El PDF es la excepción de esta versión: se **detecta y se informa**, pero no se convierte. Un
 PDF no guarda estructura sino posición —dónde está cada palabra en la página—, así que

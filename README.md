@@ -91,6 +91,7 @@ cada conversión, el script revisa:
 - que no haya saltos de nivel (`#` → `###`)
 - que la sangría de las listas sea múltiplo de 2
 - que el documento tenga al menos un encabezado
+- que el archivo no haya quedado vacío
 
 Si algo falla, lo informa:
 

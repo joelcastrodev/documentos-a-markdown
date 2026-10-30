@@ -351,6 +351,14 @@ def procesar(ruta: Path, carpeta_salida: Path | None) -> Path:
     destino.write_text(markdown, encoding="utf-8")
 
     problemas = validar_estructura(markdown)
+
+    # Un archivo vacío o casi vacío es la falla más silenciosa de todas: el
+    # proceso termina bien, el .md existe, y el RAG ingiere un documento sin
+    # contenido. Se avisa explícitamente para que no pase inadvertido.
+    cuerpo = markdown.split("\n\n", 1)[-1].strip()
+    if len(cuerpo) < 20:
+        problemas.insert(0, "la salida quedó vacía o casi vacía: el documento no produjo contenido")
+
     if problemas:
         for problema in problemas:
             print(f"  aviso: {problema}")
