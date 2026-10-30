@@ -1,0 +1,9 @@
+flowchart TD
+    A[".docx de entrada"] --> B["convertir.py<br/>interfaz de línea de comandos"]
+    B --> C["iter_bloques()<br/>recorre el cuerpo en su orden real"]
+    C --> D{"¿párrafo o tabla?"}
+    D -->|párrafo| E["clasificar()<br/>título · lista · cita · texto"]
+    D -->|tabla| F["tabla_a_markdown()"]
+    E --> G["componer()<br/>agrupa bloques"]
+    F --> G
+    G --> H[".md de salida"]

@@ -1,0 +1,10 @@
+flowchart LR
+    A["python convertir.py archivo.docx"] --> B{"¿la ruta existe?"}
+    B -- no --> C["mensaje de error<br/>código de salida 1"]
+    B -- sí --> D["Documento abierto<br/>con python-docx"]
+    D --> E["Tomar el siguiente bloque"]
+    E --> F["Bloque convertido a líneas<br/>de Markdown"]
+    F --> G{"¿quedan bloques?"}
+    G -- sí --> E
+    G -- no --> H["Unir bloques<br/>con línea en blanco"]
+    H --> I["Escribir el .md<br/>en UTF-8"]
