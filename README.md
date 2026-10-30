@@ -175,6 +175,27 @@ arriba se genera como se describe, y el validador responde `estructura OK` en lo
 El validador se probó además con un Markdown mal formado (primer encabezado en `H3` y una
 lista con sangría de tres espacios): reporta los dos problemas.
 
+## Cómo se hizo
+
+El proceso que documenta este repositorio es real: los documentos en carpetas, los 30 minutos
+por archivo, el `.bat`, las tres versiones de la herramienta y la revisión manual de la
+estructura.
+
+El código de esta demostración y la redacción de estos documentos se hicieron con asistencia de
+un modelo de lenguaje, a partir de ese material y de mis decisiones sobre qué contar y qué no.
+
+Uso IA como herramienta, igual que un IDE o un linter: me ahorra la parte mecánica, no me
+ahorra entender el problema. Lo digo aquí porque el resto del repositorio está escrito con la
+misma regla: si algo no se puede demostrar, no se afirma.
+
+| Qué | Origen |
+|---|---|
+| El proceso real: carpetas, RAG, 30 min por documento, `.bat`, revisión manual | Mi trabajo |
+| Las tres versiones de la herramienta original | Mi trabajo |
+| El caso del archivo de 0 bytes | Mi prueba |
+| La demo `convertir.py` | Escrita con asistencia de IA, probada y revisada por mí |
+| La documentación de este repositorio | Redactada con asistencia de IA a partir de mi relato |
+
 ## La herramienta original
 
 Este repositorio es una reconstrucción. La herramienta original existía en tres formas —línea
