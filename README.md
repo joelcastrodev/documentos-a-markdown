@@ -129,13 +129,14 @@ documentos-a-markdown/
 │   ├── proceso.md                Cómo se hizo, incluida la parte manual
 │   ├── decisiones.md             Por qué está hecho así
 │   ├── arquitectura.mermaid      Las piezas y cómo se hablan
-│   └── flujo.mermaid             El recorrido de un dato
+│   ├── flujo.mermaid             El recorrido de un dato
+│   └── captura-gui.png           La interfaz de la herramienta original
 └── requisitos.txt
 ```
 
 ## Decisiones de diseño
 
-Cuatro que explican el comportamiento, con el detalle en
+Cinco que explican el comportamiento, con el detalle en
 [`docs/decisiones.md`](docs/decisiones.md):
 
 **Los títulos bajan un nivel.** El `Title` de Word se convierte en `#` y `Heading 1` en `##`.
@@ -172,3 +173,15 @@ arriba se genera como se describe, y el validador responde `estructura OK` en lo
 
 El validador se probó además con un Markdown mal formado (primer encabezado en `H3` y una
 lista con sangría de tres espacios): reporta los dos problemas.
+
+## La herramienta original
+
+Este repositorio es una reconstrucción. La herramienta original existía en tres formas —línea
+de comandos, menú interactivo e interfaz gráfica— y su código no forma parte de este
+repositorio.
+
+![Interfaz gráfica del conversor a Markdown, con dos archivos seleccionados y el registro de progreso](docs/captura-gui.png)
+
+La ventana de la captura no es parte de la demo: es la interfaz real del proceso que aquí se
+documenta, donde la conversión corre en un hilo aparte para que la ventana no se congele. El
+detalle de las tres versiones está en [`docs/proceso.md`](docs/proceso.md).
